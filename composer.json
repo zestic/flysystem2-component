@@ -1,0 +1,35 @@
+{
+  "name": "iampersistent/flysystem2-component",
+  "type": "library",
+  "description": "Flysystme v2",
+  "keywords": [
+    "Flysystem",
+    "Laminas"
+  ],
+  "license": "MIT",
+  "config": {
+    "sort-packages": true
+  },
+  "require": {
+    "php": ">=7.4 || ^8.0",
+    "iampersistent/config-value-component": "^1.0",
+    "league/flysystem": "^2.0"
+  },
+  "require-dev": {
+    "codeception/codeception": "^4.1.6",
+    "codeception/module-asserts": "^1.0.0"
+  },
+  "minimum-stability": "dev",
+  "autoload": {
+    "psr-4": {
+      "IamPersistent\\Flysystem\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\Fixture\\": "tests/_support/Fixture",
+      "Tests\\Functional\\": "tests/functional",
+      "Tests\\Unit\\": "tests/unit"
+    }
+  }
+}
