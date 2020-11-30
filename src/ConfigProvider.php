@@ -16,8 +16,10 @@ final class ConfigProvider
     {
         return [
             'factories' => [
-                'AwsS3V3'                             =>
+                'AwsS3V3Adapter'                           =>
                     \IamPersistent\Flysystem\Factory\Adapter\AwsS3V3AdapterFactory::class,
+                \League\Flysystem\Filesystem::class =>
+                    \IamPersistent\Flysystem\Factory\FilesystemFactory::class,
             ],
         ];
     }

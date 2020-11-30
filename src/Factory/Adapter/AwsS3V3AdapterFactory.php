@@ -3,26 +3,50 @@ declare(strict_types=1);
 
 namespace IamPersistent\Flysystem\Factory\Adapter;
 
+use Aws\S3\S3Client;
 use ConfigValue\GatherConfigValues;
 use League\Flysystem\AwsS3V3\AwsS3V3Adapter;
 use Psr\Container\ContainerInterface;
 
 final class AwsS3V3AdapterFactory
 {
+    /** @var string */
+    private $system = 'default';
+
+    public function __construct(string $system)
+    {
+        $this->system = $system;
+    }
+
     public function __invoke(ContainerInterface $container): AwsS3V3Adapter
     {
-        $config = (new GatherConfigValues)($container, 'flysystem');
-        $config = $config['s3'];
+        $flysystemConfig = (new GatherConfigValues)($container, 'flysystem');
+        $config = $flysystemConfig[$this->system];
 
-        $client = new Aws\S3\S3Client($options);
+        $args = [
+            'credentials' => [
+                'key'    => $config['key'],
+                'secret' => $config['secret'],
+            ],
+            'endpoint'    => $config['endpoint'],
+            'region'      => $config['region'],
+            'version'     => $config['version'] ?? 'latest',
+        ];
+
+        $client = new S3Client($args);
 
         $bucket = $config['bucket'];
         $prefix = $config['prefix'] ?? '';
+        $visibility = $config['visibility'] ?
+            new \League\Flysystem\AwsS3V3\PortableVisibilityConverter(
+                $config['visibility']
+            ) : null;
 
         return new AwsS3V3Adapter(
             $client,
             $bucket,
-            $prefix
+            $prefix,
+            $visibility
         );
     }
 }
