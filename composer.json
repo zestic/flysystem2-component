@@ -1,7 +1,7 @@
 {
-  "name": "iampersistent/flysystem2-component",
+  "name": "zestic/flysystem2-component",
   "type": "library",
-  "description": "Flysystme v2",
+  "description": "Flysystem v2",
   "keywords": [
     "Flysystem",
     "Laminas"
@@ -11,7 +11,7 @@
     "sort-packages": true
   },
   "require": {
-    "php": ">=7.4 || ^8.0",
+    "php": "^8.0",
     "iampersistent/config-value-component": "^1.1",
     "league/flysystem": "^2.0"
   },
@@ -22,7 +22,7 @@
   "minimum-stability": "dev",
   "autoload": {
     "psr-4": {
-      "IamPersistent\\Flysystem\\": "src/"
+      "Zestic\\Flysystem\\": "src/"
     }
   },
   "autoload-dev": {

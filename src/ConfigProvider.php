@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace IamPersistent\Flysystem;
+namespace Zestic\Flysystem;
 
 final class ConfigProvider
 {
@@ -17,9 +17,9 @@ final class ConfigProvider
         return [
             'factories' => [
                 'AwsS3V3Adapter'                           =>
-                    \IamPersistent\Flysystem\Factory\Adapter\AwsS3V3AdapterFactory::class,
+                    \Zestic\Flysystem\Factory\Adapter\AwsS3V3AdapterFactory::class,
                 \League\Flysystem\Filesystem::class =>
-                    \IamPersistent\Flysystem\Factory\FilesystemFactory::class,
+                    \Zestic\Flysystem\Factory\FilesystemFactory::class,
             ],
         ];
     }

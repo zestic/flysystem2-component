@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace IamPersistent\Flysystem\Factory\Adapter;
+namespace Zestic\Flysystem\Factory\Adapter;
 
 use Aws\S3\S3Client;
 use ConfigValue\GatherConfigValues;

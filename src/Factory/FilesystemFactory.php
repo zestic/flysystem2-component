@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace IamPersistent\Flysystem\Factory;
+namespace Zestic\Flysystem\Factory;
 
 use ConfigValue\GatherConfigValues;
-use IamPersistent\Flysystem\Factory\Adapter\AwsS3V3AdapterFactory;
+use Zestic\Flysystem\Factory\Adapter\AwsS3V3AdapterFactory;
 use League\Flysystem\Filesystem;
 use League\Flysystem\FilesystemAdapter;
 use Psr\Container\ContainerInterface;
