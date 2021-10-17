@@ -11,12 +11,9 @@ use Psr\Container\ContainerInterface;
 
 final class FilesystemFactory
 {
-    /** @var string */
-    private $system = 'default';
-
-    public function __construct(string $system)
-    {
-        $this->system = $system;
+    public function __construct(
+        private string $system = 'default'
+    ) {
     }
 
     public function __invoke(ContainerInterface $container): Filesystem

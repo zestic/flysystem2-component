@@ -10,12 +10,9 @@ use Psr\Container\ContainerInterface;
 
 final class AwsS3V3AdapterFactory
 {
-    /** @var string */
-    private $system = 'default';
-
-    public function __construct(string $system)
-    {
-        $this->system = $system;
+    public function __construct(
+        private string $system = 'default'
+    ) {
     }
 
     public function __invoke(ContainerInterface $container): AwsS3V3Adapter
