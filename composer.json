@@ -13,7 +13,8 @@
   "require": {
     "php": "^8.0",
     "iampersistent/config-value-component": "^1.1",
-    "league/flysystem": "^2.0"
+    "league/flysystem": "^2.0",
+    "symfony/dotenv": "6.0.x-dev"
   },
   "require-dev": {
     "codeception/codeception": "^4.1.6",
