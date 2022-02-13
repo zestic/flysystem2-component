@@ -12,6 +12,21 @@ final class Files
         private string $url,
     ) { }
 
+    public function fileExists(string $location): bool
+    {
+        return $this->filesystem->fileExists($location);
+    }
+
+    public function getFileSize(string $location): int
+    {
+        return $this->filesystem->fileSize($location);
+    }
+
+    public function getMimeType(string $location): string
+    {
+        return $this->filesystem->mimeType($location);
+    }
+
     public function read(string $location): string
     {
         return $this->filesystem->read($location);
