@@ -12,6 +12,16 @@ final class Files
         private string $url,
     ) { }
 
+    public function read(string $location): string
+    {
+        return $this->filesystem->read($location);
+    }
+
+    public function readStream(string $location)
+    {
+        return $this->filesystem->readStream($location);
+    }
+
     public function write(string $location, string $contents, array $config = []): string
     {
         $this->filesystem->write($location, $contents, $config);
