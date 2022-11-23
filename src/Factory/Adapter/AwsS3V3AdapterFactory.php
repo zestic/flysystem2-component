@@ -6,6 +6,7 @@ namespace Zestic\Flysystem\Factory\Adapter;
 use Aws\S3\S3Client;
 use ConfigValue\GatherConfigValues;
 use League\Flysystem\AwsS3V3\AwsS3V3Adapter;
+use League\Flysystem\AwsS3V3\PortableVisibilityConverter;
 use Psr\Container\ContainerInterface;
 
 final class AwsS3V3AdapterFactory
@@ -35,7 +36,7 @@ final class AwsS3V3AdapterFactory
         $bucket = $config['bucket'];
         $prefix = $config['prefix'] ?? '';
         $visibility = $config['visibility'] ?
-            new \League\Flysystem\AwsS3V3\PortableVisibilityConverter(
+            new PortableVisibilityConverter(
                 $config['visibility']
             ) : null;
 
